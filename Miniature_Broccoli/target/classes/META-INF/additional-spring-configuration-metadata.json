@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "mybatis-plus.configuration.log-impl",
+      "type": "java.lang.String",
+      "description": "Description for mybatis-plus.configuration.log-impl."
+    },
+    {
+      "name": "mybatis-plus.configuration.log-impl",
+      "type": "java.lang.String",
+      "description": "Description for mybatis-plus.configuration.log-impl."
+    }
+  ] }

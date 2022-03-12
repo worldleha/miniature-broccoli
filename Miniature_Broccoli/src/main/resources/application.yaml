@@ -1,0 +1,18 @@
+#端口服务配置
+server:
+  port: 12121  #端口号
+  error:
+    whitelabel:
+      enabled: false
+#数据库配置
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://sccdqz.ltd:3306/Miniature_Broccoli
+      username: Miniature_Broccoli
+      password: scc134679..
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
