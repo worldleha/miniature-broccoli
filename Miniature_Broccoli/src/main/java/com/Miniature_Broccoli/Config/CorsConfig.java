@@ -6,7 +6,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 /**
  * AJAX请求跨域
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
  */
 @Configuration
 public class CorsConfig extends WebMvcConfigurerAdapter {

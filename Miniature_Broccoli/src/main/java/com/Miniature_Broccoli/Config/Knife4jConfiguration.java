@@ -10,12 +10,22 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
 @Configuration
+<<<<<<< Updated upstream
 
+=======
+/**
+ * Knife4j配置
+ */
+>>>>>>> Stashed changes
 public class Knife4jConfiguration {
 
     @Bean(value = "defaultApi2")
     public Docket defaultApi2() {
+<<<<<<< Updated upstream
         Docket build = new Docket(DocumentationType.SWAGGER_2)
+=======
+        return new Docket(DocumentationType.SWAGGER_2)
+>>>>>>> Stashed changes
                 .apiInfo(new ApiInfoBuilder()
                         .title("疯狂的西兰花")
                         .description("个人博客API文档")
@@ -30,6 +40,9 @@ public class Knife4jConfiguration {
                 .apis(RequestHandlerSelectors.basePackage("com.Miniature_Broccoli.Controller"))
                 .paths(PathSelectors.any())
                 .build();
+<<<<<<< Updated upstream
         return build;
+=======
+>>>>>>> Stashed changes
     }
 }

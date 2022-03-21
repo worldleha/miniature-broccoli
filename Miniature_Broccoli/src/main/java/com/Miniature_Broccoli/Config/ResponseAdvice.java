@@ -12,6 +12,10 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 /**
  * @RestControllerAdvice，RestController的增强类，可用于实现全局异常处理器
+<<<<<<< Updated upstream
+=======
+ *  全局相应处理
+>>>>>>> Stashed changes
  */
 @RestControllerAdvice(basePackages = "com.Miniature_Broccoli")
 public class ResponseAdvice implements ResponseBodyAdvice {

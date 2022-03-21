@@ -26,9 +26,15 @@ class MiniatureBroccoliApplicationTests {
         List<Article> articles = articleMapper.selectList(null);
         List<Comment> commentList = commentMapper.selectList(null);
         List<Replyform> replyMappers = replyMapper.selectList(null);
+<<<<<<< Updated upstream
         System.err.println("文章表信息"+articles.toString()+"\n"
                 +"评论表信息"+commentList.toString()
                 +"回复表信息"+replyMappers.toString());
+=======
+        System.err.println("文章表信息"+articles.toString()+"\n");
+//                +"评论表信息"+commentList.toString()
+//                +"回复表信息"+replyMappers.toString());
+>>>>>>> Stashed changes
     }
 
     @Test

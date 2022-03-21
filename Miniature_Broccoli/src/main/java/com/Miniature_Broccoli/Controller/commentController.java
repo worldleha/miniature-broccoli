@@ -5,6 +5,10 @@ import com.Miniature_Broccoli.service.commentService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+<<<<<<< Updated upstream
+=======
+import io.swagger.annotations.ApiParam;
+>>>>>>> Stashed changes
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,7 +26,11 @@ public class commentController {
 
     @ApiOperation("根据文章id返回所有评论信息")
     @GetMapping("/{id}")
+<<<<<<< Updated upstream
     public Object save(@PathVariable Integer id) {
+=======
+    public Object save( @ApiParam(name = "id", value = "文章id", required = true)@PathVariable Long id) {
+>>>>>>> Stashed changes
         QueryWrapper<Comment> wrapper = new QueryWrapper<>();
         wrapper.eq("article_id", id);
         List<Comment> list = commentService.list(wrapper);
@@ -45,7 +53,11 @@ public class commentController {
 
     @ApiOperation("根据id删除")
     @DeleteMapping("/{id}")
+<<<<<<< Updated upstream
     public Object deleteId(@PathVariable Integer id) {
+=======
+    public Object deleteId(@ApiParam(name = "id", value = "文章id", required = true)@PathVariable Long id) {
+>>>>>>> Stashed changes
         boolean b = commentService.removeById(id);
         if (b) {
             return "删除成功";
