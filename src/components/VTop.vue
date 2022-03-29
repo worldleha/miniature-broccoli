@@ -4,7 +4,7 @@
 		<h2 class="header-title2">磷叶石</h2>
 		<VSearch class="search-box"></VSearch>
 		<BButtonGroup class = "b-button-box">
-			<BButton variant="success">首页</BButton>
+			<BButton @click = "linkToWindow" variant="success">首页</BButton>
 			<BButton variant="success">相关链接</BButton>
 			
 			<BButton variant="success">关于我</BButton>
@@ -24,7 +24,17 @@
 			BButtonGroup,
 			BButton,
 			VSearch
+		},
+		methods:{
+			linkToWindow(){
+				console.log(this)
+				this.$router.push({
+					name:"window2"
+				})
+			}
+			
 		}
+
 	}
 </script>
 

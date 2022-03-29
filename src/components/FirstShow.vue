@@ -61,7 +61,7 @@
 	.first-show-top {
 
 		width: 100%;
-		height: 48%;
+		height: 46%;
 
 		margin: 2% auto;
 

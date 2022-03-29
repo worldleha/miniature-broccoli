@@ -8,7 +8,7 @@
 				<b-col md="3">
 					<b-card-img
 					height = "100%"
-					src="https://picsum.photos/400/400/?image=20" class="rounded-0"></b-card-img>
+					src="" class="rounded-0"></b-card-img>
 				</b-col>
 				<b-col md="9">
 					<b-card-body title="Horizontal Card">

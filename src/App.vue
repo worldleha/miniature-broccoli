@@ -2,7 +2,11 @@
 	
 	<div id="show_window">
 		<VTop class = "top-header"></VTop>
-		<SlidingWindow backgroundColor = "red">
+		<!-- //暂时未用于滑动窗口 -->
+		<SlidingWindow 
+		id= "move_page" 
+		:style="{transform: 'translateY('+position+'px)'}" 
+		backgroundColor = "red">
 			<template v-slot:default>	
 				<FirstShow/>
 			</template>
@@ -12,6 +16,7 @@
 		<SlidingWindow backgroundColor = "blue"></SlidingWindow>
 		
 	</div>
+	
 </template>
 
 <script>
@@ -26,6 +31,26 @@ export default {
 			VTop,
 			FirstShow,
 		},
+		data(){
+			return{
+				//暂时未用于滑动窗口
+				position: 0
+			}
+		},
+		methods:{
+			//暂时未用于滑动窗口
+			toPosition(pos){
+				this.position = pos
+			}
+		},
+		mounted() {
+			//暂时未用于滑动窗口
+			this.$bus.$on("toPosition", this.toPosition)
+		},
+		beforeDestroy() {
+			//暂时未用于滑动窗口
+			this.$bus.$off("toPosition")
+		}
 	}
 </script>
 
@@ -42,6 +67,10 @@ export default {
 		/* overflow: hidden; */
 	}
 	
+	#move_page{
+		transform: translateY(0px);
+	}
+	
 	.top-header{
 		
 		position: fixed;
@@ -52,5 +81,5 @@ export default {
 		
 		z-index: 12;
 	}
-	
+
 </style>
