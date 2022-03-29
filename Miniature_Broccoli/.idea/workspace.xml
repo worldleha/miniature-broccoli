@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
@@ -16,11 +19,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
-<<<<<<< Updated upstream
-=======
+        <option value="AnnotationType" />
         <option value="Interface" />
->>>>>>> Stashed changes
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -32,12 +33,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-<<<<<<< Updated upstream
-=======
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$PROJECT_DIR$/../../JDK/JDK11.0.1/lib/src.zip!/java.base/java/lang/Integer.java" root0="SKIP_INSPECTION" />
   </component>
->>>>>>> Stashed changes
   <component name="JRebelWorkspace">
     <option name="jrebelEnabledAutocompile" value="true" />
   </component>
@@ -63,10 +61,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-<<<<<<< Updated upstream
-=======
     <property name="DatabaseDriversLRU" value="mysql" />
->>>>>>> Stashed changes
     <property name="Downloaded.Files.Path.Enabled" value="true" />
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
@@ -80,84 +75,63 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-<<<<<<< Updated upstream
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../swagger-bootstrap-ui-demo-master/swagger-bootstrap-ui-demo-master" />
-=======
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
->>>>>>> Stashed changes
+    <property name="database.data.extractors.current.export.id" value="Comma-separated (CSV)_id" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/miniaturebroccoli/mapper" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-<<<<<<< Updated upstream
-    <property name="project.structure.last.edited" value="Facet" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="http.proxy" />
-=======
     <property name="project.structure.last.edited" value="模块" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
->>>>>>> Stashed changes
   </component>
   <component name="RebelAgentSelection">
     <selection>jr</selection>
   </component>
   <component name="RecentsManager">
-<<<<<<< Updated upstream
-=======
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.Miniature_Broccoli.Config" />
     </key>
->>>>>>> Stashed changes
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\JavaProject\Miniature_Broccoli\src\main\java\com\miniaturebroccoli\mapper" />
+      <recent name="E:\JavaProject\Miniature_Broccoli\src\main\java\com\miniaturebroccoli\utils" />
+      <recent name="E:\JavaProject\Miniature_Broccoli\src\main\java\com\miniaturebroccoli" />
       <recent name="E:\JavaProject\Miniature_Broccoli\src\main\resources" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\JavaProject\Miniature_Broccoli\src\main\resources\static" />
+      <recent name="E:\JavaProject\Miniature_Broccoli\src\main\resources" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.miniaturebroccoli.config" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-<<<<<<< Updated upstream
-=======
+      <recent name="com.miniaturebroccoli.service.impl" />
+      <recent name="com.miniaturebroccoli.service" />
+      <recent name="com.miniaturebroccoli.pojo" />
       <recent name="com.Miniature_Broccoli.Controller" />
->>>>>>> Stashed changes
       <recent name="com.Miniature_Broccoli.service.impl" />
-      <recent name="com.Miniature_Broccoli.service" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.MiniatureBroccoliApplication">
-<<<<<<< Updated upstream
-=======
-    <configuration name="HtmlFilter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.Miniature_Broccoli.Config.HtmlFilter" />
-      <module name="Miniature_Broccoli" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.Miniature_Broccoli.Config.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="comment.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
       <script-file value="cfd3a617-ca40-4661-8606-1447fc1d9c29/schema/Miniature_Broccoli/table/comment.sql" />
       <script-mode>FILE</script-mode>
       <method v="2" />
     </configuration>
->>>>>>> Stashed changes
     <configuration name="MiniatureBroccoliApplicationTests.a" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Miniature_Broccoli" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.Miniature_Broccoli.*" />
+          <option name="PATTERN" value="com.miniaturebroccoli.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.Miniature_Broccoli" />
-      <option name="MAIN_CLASS_NAME" value="com.Miniature_Broccoli.MiniatureBroccoliApplicationTests" />
+      <option name="MAIN_CLASS_NAME" value="com.miniaturebroccoli.MiniatureBroccoliApplicationTests" />
       <option name="METHOD_NAME" value="a" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -168,12 +142,12 @@
       <module name="Miniature_Broccoli" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.Miniature_Broccoli.*" />
+          <option name="PATTERN" value="com.miniaturebroccoli.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.Miniature_Broccoli" />
-      <option name="MAIN_CLASS_NAME" value="com.Miniature_Broccoli.MiniatureBroccoliApplicationTests" />
+      <option name="MAIN_CLASS_NAME" value="com.miniaturebroccoli.MiniatureBroccoliApplicationTests" />
       <option name="METHOD_NAME" value="contextLoads" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -184,13 +158,29 @@
       <module name="Miniature_Broccoli" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.Miniature_Broccoli.*" />
+          <option name="PATTERN" value="com.miniaturebroccoli.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.Miniature_Broccoli" />
-      <option name="MAIN_CLASS_NAME" value="com.Miniature_Broccoli.MiniatureBroccoliApplicationTests" />
+      <option name="MAIN_CLASS_NAME" value="com.miniaturebroccoli.MiniatureBroccoliApplicationTests" />
       <option name="METHOD_NAME" value="d" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MiniatureBroccoliApplicationTests.e" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Miniature_Broccoli" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.miniaturebroccoli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.miniaturebroccoli" />
+      <option name="MAIN_CLASS_NAME" value="com.miniaturebroccoli.MiniatureBroccoliApplicationTests" />
+      <option name="METHOD_NAME" value="e" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -200,11 +190,11 @@
       <module name="Miniature_Broccoli" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.Miniature_Broccoli.*" />
+          <option name="PATTERN" value="com.miniaturebroccoli.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.Miniature_Broccoli.MiniatureBroccoliApplication" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.miniaturebroccoli.MiniatureBroccoliApplication" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="ALTERNATIVE_JRE_PATH" value="11" />
       <method v="2">
@@ -213,14 +203,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MiniatureBroccoliApplicationTests.e" />
         <item itemvalue="JUnit.MiniatureBroccoliApplicationTests.d" />
         <item itemvalue="JUnit.MiniatureBroccoliApplicationTests.contextLoads" />
         <item itemvalue="JUnit.MiniatureBroccoliApplicationTests.a" />
-<<<<<<< Updated upstream
-=======
         <item itemvalue="数据库脚本.comment.sql" />
-        <item itemvalue="应用程序.HtmlFilter" />
->>>>>>> Stashed changes
       </list>
     </recent_temporary>
   </component>
@@ -262,9 +249,6 @@
       <workItem from="1647191651857" duration="494000" />
       <workItem from="1647192194626" duration="919000" />
       <workItem from="1647194235918" duration="141000" />
-<<<<<<< Updated upstream
-      <workItem from="1647231597892" duration="4157000" />
-=======
       <workItem from="1647231597892" duration="4859000" />
       <workItem from="1647262515846" duration="4061000" />
       <workItem from="1647313739843" duration="16637000" />
@@ -280,8 +264,31 @@
       <workItem from="1647778367824" duration="274000" />
       <workItem from="1647778665372" duration="6126000" />
       <workItem from="1647841868610" duration="170000" />
-      <workItem from="1647843537662" duration="37000" />
->>>>>>> Stashed changes
+      <workItem from="1647843537662" duration="4361000" />
+      <workItem from="1647873002724" duration="1069000" />
+      <workItem from="1647875620687" duration="726000" />
+      <workItem from="1647951779928" duration="582000" />
+      <workItem from="1648018972232" duration="9000" />
+      <workItem from="1648040355564" duration="2060000" />
+      <workItem from="1648043898417" duration="1226000" />
+      <workItem from="1648045157216" duration="2429000" />
+      <workItem from="1648094939766" duration="348000" />
+      <workItem from="1648095491244" duration="872000" />
+      <workItem from="1648110708586" duration="3686000" />
+      <workItem from="1648114447665" duration="881000" />
+      <workItem from="1648118121425" duration="2393000" />
+      <workItem from="1648127459493" duration="40000" />
+      <workItem from="1648127520591" duration="1806000" />
+      <workItem from="1648183345755" duration="3025000" />
+      <workItem from="1648199070063" duration="19000" />
+      <workItem from="1648199835050" duration="1240000" />
+      <workItem from="1648214562708" duration="4000" />
+      <workItem from="1648373679089" duration="4747000" />
+      <workItem from="1648475939958" duration="1346000" />
+      <workItem from="1648477752410" duration="645000" />
+      <workItem from="1648537496813" duration="750000" />
+      <workItem from="1648539442010" duration="256000" />
+      <workItem from="1648539720205" duration="12308000" />
     </task>
     <servers />
   </component>
@@ -290,26 +297,26 @@
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="application.yaml" />
+    <option featureType="com.intellij.fileTypeFactory" implementationName="application.yml" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/Miniature_Broccoli/PoJo/Article.java</url>
-<<<<<<< Updated upstream
-          <line>13</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-=======
-          <line>14</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/Miniature_Broccoli/Controller/articleController.java</url>
-          <line>104</line>
+          <url>file://$PROJECT_DIR$/src/main/java/com/miniaturebroccoli/controller/AticleController.java</url>
+          <line>109</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
->>>>>>> Stashed changes
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/miniaturebroccoli/utils/ResponseAdvice.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/miniaturebroccoli/interceptor/CorsConfig.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="org.springframework.web.servlet.NoHandlerFoundException" package="org.springframework.web.servlet" />
           <option name="timeStamp" value="2" />
