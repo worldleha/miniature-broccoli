@@ -1,14 +1,59 @@
+.middle-window {
 
-.middle-window{
-	
-	
-	
-	width: 74%;
-	height: 84%;
-	
+	position: relative;
+
+	width: 74vw;
+	height: 84vh;
+
 	margin: 6rem auto;
-	
+
 	background-color: #0056B3;
+
+}
+.middle-window-child{
+	position: absolute;
+	
+	width: 74vw;
+	height: 84vh;
+	
+	background-color: darkcyan;
 	
 	overflow: hidden;
 }
+
+.fill-height{
+	
+	height: 100%;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+	transition: opacity .5s;
+}
+
+.fade-enter,
+.fade-leave-to
+
+{
+	opacity: 0;
+}
+
+
+
+
+.goleft-enter-active,
+.goleft-leave-active {
+
+	transition: transform .5s;
+}
+.goleft-enter{
+	transform: translateX(1000px)
+}
+.goleft-enter-to{
+	transform: translateX(0);
+}
+.goleft-leave-to
+{
+	transform: translateX(-1000px)
+}
+
