@@ -1,5 +1,5 @@
 <template>
-	<div class = "set-SlidingWindow" :style = "{backgroundColor}">
+	<div class = "set-sliding-window" :style = "{backgroundColor}">
 		<slot>"未插入"</slot>
 	</div>
 </template>
@@ -19,7 +19,7 @@
 </script>
 
 <style scoped>
-	.set-SlidingWindow{
+	.set-sliding-window{
 		
 		position: relative;
 		
