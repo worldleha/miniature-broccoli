@@ -2,17 +2,21 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from "vue-router"
 
-import { LayoutPlugin } from 'bootstrap-vue'
-import { CardPlugin } from 'bootstrap-vue'
 
-import router from "./router/index.js"
+import {CardPlugin,PaginationPlugin,LayoutPlugin} from 'bootstrap-vue'
+
+import router from "./router"
+import store from "./store"
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
+
 Vue.use(VueRouter)
 Vue.use(LayoutPlugin)
 Vue.use(CardPlugin)
+Vue.use(PaginationPlugin)
+
 
 Vue.config.productionTip = false
 
@@ -22,5 +26,6 @@ new Vue({
 	},
 	render: h => h(App),
 	router,
+	store,
 }).$mount('#app')
 
