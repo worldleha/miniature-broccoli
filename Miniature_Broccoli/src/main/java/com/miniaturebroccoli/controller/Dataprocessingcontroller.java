@@ -1,32 +1,48 @@
 package com.miniaturebroccoli.controller;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.miniaturebroccoli.annotation.JwtIgnore;
 import com.miniaturebroccoli.pojo.Dataprocessing;
 import com.miniaturebroccoli.service.dataProcessingService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author scc
  */
 @RestController
-public class Dataprocessingcontroller {
+@RequestMapping("/data")
+public class DataprocessingController {
     private final dataProcessingService dps;
 
-    public Dataprocessingcontroller(dataProcessingService dps) {
+    public DataprocessingController(dataProcessingService dps) {
         this.dps = dps;
     }
 
-    @GetMapping("/data")
-    private List<String> data() {
-        QueryWrapper<Dataprocessing> queryWrapper = new QueryWrapper<>();
-        List<Dataprocessing> dataprocessings = dps.list(null);
-        List<String> list = dataprocessings.stream().map(Dataprocessing::getSensitiveWords).collect(Collectors.toList());
-        System.err.println(list);
-        return list;
+
+    @PostMapping
+    private Object adddata(@RequestBody Dataprocessing dp) {
+        return dps.adddata(dp);
+    }
+
+    @PutMapping
+    private Object updatedata(@RequestBody Dataprocessing dp) {
+        return dps.updatedata(dp);
+    }
+
+    @DeleteMapping("/{id}")
+    private Object deleteId(@PathVariable Long id) {
+        return dps.deleteId(id);
+    }
+
+    @JwtIgnore
+    @GetMapping("/page/{current}")
+    private Object getPage(@PathVariable Integer current) {
+        return dps.getPage(current);
+    }
+
+    @JwtIgnore
+    @GetMapping("/total")
+    private Object total() {
+        return dps.total();
     }
 }

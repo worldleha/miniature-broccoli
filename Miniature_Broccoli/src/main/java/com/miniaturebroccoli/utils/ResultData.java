@@ -41,11 +41,11 @@ public class ResultData<T> {
     /**
      * 请求成功返回格式
      *
-     * @param data
      * @param <T>
+     * @param data
      * @return
      */
-    public static <T> ResultData<T> success(T data) {
+    public static <T> ResultData success(T data) {
         ResultData resultData = new ResultData();
         resultData.setCode(ReturnCode.RC200.getCode());
         resultData.setMsg(ReturnCode.RC200.getMsg());

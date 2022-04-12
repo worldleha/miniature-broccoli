@@ -1,61 +1,78 @@
 package com.miniaturebroccoli.controller;
 
+import com.miniaturebroccoli.annotation.JwtIgnore;
 import com.miniaturebroccoli.pojo.Comment;
 import com.miniaturebroccoli.service.CommentService;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
+import com.miniaturebroccoli.utils.IpUtil;
+import com.miniaturebroccoli.utils.ResultData;
+import com.miniaturebroccoli.utils.SensitiveWordUtil;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author scc
  */
-@Api(tags = "评论接口")
 @RestController
-@RequestMapping("/comment")
 @CrossOrigin
 public class CommentController {
-
     private final CommentService commentService;
 
     public CommentController(CommentService commentService) {
         this.commentService = commentService;
     }
+    /**
+     * 根据文章id返回所有评论
+     */
+    @JwtIgnore
+    @GetMapping("/comment/{id}")
+    public Object Returnby_articleid( @PathVariable Long id) {
+        return commentService.Returnby_articleid(id);
+    }
+    /**
+     * 根据文章id返回对应文章评论条数
+     */
+    @JwtIgnore
+    @GetMapping("/comment_total/{id}")
+    public Object article_total( @PathVariable Long id) {
+        return commentService.article_total(id);
+    }
+    /**
+     * 返回总评论数
+     */
+    @JwtIgnore
+    @GetMapping("comment/total")
+    private Object total() {
+        return commentService.total();
+    }
 
-    @ApiOperation("根据文章id返回所有评论信息")
-    @GetMapping("/{id}")
-    public Object save(@ApiParam(name = "id", value = "文章id", required = true) @PathVariable Long id) {
-        QueryWrapper<Comment> wrapper = new QueryWrapper<>();
-        wrapper.eq("article_id", id);
-        List<Comment> list = commentService.list(wrapper);
-        if (list.size() > 0) {
-            return list;
+    /**
+     * 添加评论
+     */
+    @PostMapping("comment")
+    public Object addcomment(@RequestBody Comment comment, HttpServletRequest request) {
+        Object cofing = SensitiveWordUtil.cofing(String.valueOf(comment));
+        if (cofing != null) {
+            return ResultData.customize(500, "参数中含有敏感词", cofing);
         } else {
-            return "数据为空";
+            /* 获取评论者ip地址**/
+            String ipAddr = IpUtil.getIpAddr(request);
+            /*获取评论者ip和评论时间**/
+            comment.setIpAddress(ipAddr);
+            comment.setCommentTime(String.valueOf(System.currentTimeMillis()));
+            return commentService.addcomment(comment);
         }
+
     }
 
-    @ApiOperation("添加评论")
-    @PostMapping
-    public String add(@RequestBody Comment comment) {
-        boolean b = commentService.save(comment);
-        if (b) {
-            return "添加成功";
-        }
-        return "添加失败";
+    /**
+     * 根据评论id删除评论
+     * @param id
+     * @return
+     */
+    @DeleteMapping("comment/{id}")
+    public Object deleteId( @PathVariable Long id) {
+        return commentService.deleteId(id);
     }
 
-    @ApiOperation("根据id删除")
-    @DeleteMapping("/{id}")
-    public Object deleteId(@ApiParam(name = "id", value = "文章id", required = true) @PathVariable Long id) {
-        boolean b = commentService.removeById(id);
-        if (b) {
-            return "删除成功";
-        } else {
-            return "没有查询到id=" + id + "的数据";
-        }
-    }
 }

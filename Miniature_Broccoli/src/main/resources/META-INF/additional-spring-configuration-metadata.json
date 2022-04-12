@@ -9,5 +9,15 @@
       "name": "mybatis-plus.configuration.log-impl",
       "type": "java.lang.String",
       "description": "Description for mybatis-plus.configuration.log-impl."
+    },
+    {
+      "name": "token.privateKey",
+      "type": "java.lang.String",
+      "description": "Description for token.privateKey."
+    },
+    {
+      "name": "spring.web.resources.addcomment-mappings",
+      "type": "java.lang.String",
+      "description": "Description for spring.web.resources.addcomment-mappings."
     }
   ] }

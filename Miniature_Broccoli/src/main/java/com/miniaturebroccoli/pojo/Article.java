@@ -2,40 +2,60 @@ package com.miniaturebroccoli.pojo;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-/**
- * 无参构造
- */
-@NoArgsConstructor
-/**
- * 有参构造
- */
-@AllArgsConstructor
-@Data
-@ApiModel(description = "文章实体类")
-public class Article {
-    @TableId(type = IdType.AUTO)
-    @ApiModelProperty(value = "文章id")
-    private Long articleId;
-    @ApiModelProperty(value = "文章标题")
-    private String articleTitle;
-    @ApiModelProperty(value = "管理员昵称")
-    private String adminNickname;
-    @ApiModelProperty(value = "文章发布时间")
-    private String releaseTime;
-    @ApiModelProperty(value = "最后修改时间")
-    private String modificationTime;
 
-    @ApiModelProperty(value = "页面访问量")
-    private String pageViews;
-    @ApiModelProperty(value = "文章内容")
+
+@NoArgsConstructor  /* 无参构造*/
+@AllArgsConstructor /* 有参构造**/
+@Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class Article {
+    /**
+     * 文章id
+     **/
+    @TableId(type = IdType.AUTO)
+    private Long articleId;
+    /**
+     * 文章标题
+     **/
+    private String articleTitle;
+    /**
+     * 管理员
+     **/
+    private String adminNickname;
+    /**
+     * 开始编写时间
+     **/
+    private Long releaseTime;
+    /**
+     * 最后修改时间
+     **/
+    private Long modificationTime;
+    /**
+     * 文章内容
+     **/
     private String articleContent;
-    @ApiModelProperty(value = "文章分类")
-    private String articleClassify;
-    @ApiModelProperty(value = "文章标签")
+    /**
+     * 文章标签
+     **/
     private String articleLabel;
+    /**
+     * 文章简介
+     **/
+    private String articleIntro;
+    /**
+     * 文章图片链接
+     **/
+    private String articlePictureLink;
+    /**
+     * 点赞数
+     **/
+    private int articleLikes;
+    /**
+     * 文章详情页访问量
+     */
+    private int pageViews;
 }

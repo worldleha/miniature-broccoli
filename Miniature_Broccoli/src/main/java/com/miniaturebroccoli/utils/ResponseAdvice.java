@@ -15,7 +15,8 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
  *  ResponseBodyAdvice的作用：**拦截Controller方法的返回值，统一处理返回值/响应体，一般用来统一返回格式，加解密，签名等等
  * 全局相应处理
  */
-@RestControllerAdvice(basePackages = "com.Miniature_Broccoli")
+@RestControllerAdvice(basePackages = "com.miniaturebroccoli")
+
 public class ResponseAdvice implements ResponseBodyAdvice {
 
     private final ObjectMapper objectMapper;

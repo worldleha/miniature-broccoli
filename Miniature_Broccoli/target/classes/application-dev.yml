@@ -1,0 +1,7 @@
+
+#端口服务配置
+server:
+  port: 12121
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

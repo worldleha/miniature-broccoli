@@ -1,0 +1,8 @@
+server:
+  port: 8066
+#logging:
+#  file:
+#    path: C:\Users\scc\Desktop\logs
+logging:
+  file:
+    path: /www/wwwroot/blog/

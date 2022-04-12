@@ -1,0 +1,48 @@
+{
+  "groups": [
+    {
+      "name": "audience",
+      "type": "com.miniaturebroccoli.pojo.Audience",
+      "sourceType": "com.miniaturebroccoli.pojo.Audience"
+    }
+  ],
+  "properties": [
+    {
+      "name": "audience.base64-secret",
+      "type": "java.lang.String",
+      "sourceType": "com.miniaturebroccoli.pojo.Audience"
+    },
+    {
+      "name": "audience.client-id",
+      "type": "java.lang.String",
+      "sourceType": "com.miniaturebroccoli.pojo.Audience"
+    },
+    {
+      "name": "audience.expires-second",
+      "type": "java.lang.Integer",
+      "sourceType": "com.miniaturebroccoli.pojo.Audience",
+      "defaultValue": 0
+    },
+    {
+      "name": "audience.name",
+      "type": "java.lang.String",
+      "sourceType": "com.miniaturebroccoli.pojo.Audience"
+    },
+    {
+      "name": "mybatis-plus.configuration.log-impl",
+      "type": "java.lang.String",
+      "description": "Description for mybatis-plus.configuration.log-impl."
+    },
+    {
+      "name": "spring.web.resources.addcomment-mappings",
+      "type": "java.lang.String",
+      "description": "Description for spring.web.resources.addcomment-mappings."
+    },
+    {
+      "name": "token.privateKey",
+      "type": "java.lang.String",
+      "description": "Description for token.privateKey."
+    }
+  ],
+  "hints": []
+}

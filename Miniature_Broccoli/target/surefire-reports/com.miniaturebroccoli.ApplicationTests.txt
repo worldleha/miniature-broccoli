@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.miniaturebroccoli.ApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.065 s - in com.miniaturebroccoli.ApplicationTests

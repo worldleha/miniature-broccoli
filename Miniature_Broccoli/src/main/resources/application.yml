@@ -1,7 +1,6 @@
-server:
-  port: 12121  #端口服务配置
-#数据库配置
 spring:
+  profiles:
+    active: dev
   datasource:
     druid:
       driver-class-name: com.mysql.cj.jdbc.Driver
@@ -9,25 +8,27 @@ spring:
       username: root
       password: sccdqz.com
   mvc:
+    #出现错误时, 直接抛出异常(便于异常统一处理，否则捕获不到404)
+    throw-exception-if-no-handler-found: true
     static-path-pattern: /**
+
+
+    #不要为我们工程中的资源文件建立映射
   web:
     resources:
-      static-locations: classpath:/
-mybatis-plus:
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-knife4j:
-  enable: true
+      static-locations: classpath:/static/
+      addcomment-mappings: false
 mica:
   xss:
     enabled: true
     path-patterns: /**
-
-
-    #  #出现错误时, 直接抛出异常(便于异常统一处理，否则捕获不到404)
-    #  mvc:
-    #    throw-exception-if-no-handler-found: true
-    #不要为我们工程中的资源文件建立映射
-    #  web:
-    #    resources:
-    #      add-mappings: false
+##jwt配置
+audience:
+  # 代表这个JWT的接收对象,存入audience
+  clientId: 098f6bcd4621d373cade4e832627b4f6
+  # 密钥, 经过Base64加密, 可自行替换
+  base64Secret: MDk4ZjZiY2Q0NjIxZDM3M2NhZGU0ZTgzMjYyN2I0ZjY=
+  # JWT的签发主体，存入issuer
+  name: restapiuser
+  # 过期时间，时间戳
+  expiresSecond: 172800000
