@@ -7,8 +7,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor /*无参构造*/
-@AllArgsConstructor /*有参构造*/
+
+/**
+ * @author scc
+ */
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Admin {
@@ -34,3 +38,10 @@ public class Admin {
      */
     private String adminEmail;
 }
+
+
+
+
+
+
+

@@ -29,11 +29,11 @@ public class Article {
     /**
      * 开始编写时间
      **/
-    private Long releaseTime;
+    private String releaseTime;
     /**
      * 最后修改时间
      **/
-    private Long modificationTime;
+    private String modificationTime;
     /**
      * 文章内容
      **/
@@ -53,9 +53,9 @@ public class Article {
     /**
      * 点赞数
      **/
-    private int articleLikes;
+    private long articleLikes;
     /**
      * 文章详情页访问量
      */
-    private int pageViews;
+    private long pageViews;
 }

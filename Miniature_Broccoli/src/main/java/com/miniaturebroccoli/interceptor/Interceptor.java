@@ -1,10 +1,10 @@
 package com.miniaturebroccoli.interceptor;
 
+
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.miniaturebroccoli.annotation.JwtIgnore;
 import com.miniaturebroccoli.interceptor.exception.CustomException;
 import com.miniaturebroccoli.pojo.Audience;
-import com.miniaturebroccoli.utils.IpUtil;
 import com.miniaturebroccoli.utils.JwtTokenUtil;
 import com.miniaturebroccoli.utils.ResultData;
 import lombok.extern.slf4j.Slf4j;
@@ -21,53 +21,46 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * 拦截器
  */
-@SuppressWarnings("SpringJavaAutowiredMembersInspection")
+
 @Slf4j
 public class Interceptor implements HandlerInterceptor {
-
     @Autowired
     public Audience audience;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
-        String ipAddr = IpUtil.getIpAddr(request);
-        log.info(ipAddr);
-        log.info("进入拦截器|请求地址:" + request.getRequestURL());
-        // 忽略带JwtIgnore注解的请求, 不做后续token认证校验
+        /* 忽略带JwtIgnore注解的请求, 不做后续token认证校验*/
         if (handler instanceof HandlerMethod) {
             HandlerMethod handlerMethod = (HandlerMethod) handler;
             JwtIgnore jwtIgnore = handlerMethod.getMethodAnnotation(JwtIgnore.class);
             if (jwtIgnore != null) {
-                log.info("JwtIgnore注解的请求, 不做后续token认证校验");
+                log.error("JwtIgnore注解的请求, 不做后续token认证校验");
                 return true;
             }
         }
-        //如果不是映射到方法就直接通过
+        /*如果不是映射到方法就直接通过*/
         if (!(handler instanceof HandlerMethod)) {
             log.error("接口地址不存在,404错误,放行由启动类拦截404错误，跳转到404页面");
             return true;
         }
-
         if ((HttpMethod.OPTIONS).toString().equals(request.getMethod())) {
             response.setStatus(HttpServletResponse.SC_OK);
             return true;
         }
-
-        // 获取请求头信息authorization信息
+        /*获取请求头信息authorization信息*/
         final String authHeader = request.getHeader(JwtTokenUtil.AUTH_HEADER_KEY);
         log.info("authHeader= {}", authHeader);
         if (StringUtils.isBlank(authHeader) || !authHeader.startsWith(JwtTokenUtil.TOKEN_PREFIX)) {
-            log.info("Token不存在");
+            log.error("Token不存在");
             throw new CustomException(ResultData.fail(200, "用户未登录,请先登录"));
         }
-        // 获取token
-
+        /*获取token*/
         final String token = authHeader.substring(7);
         if (audience == null) {
             BeanFactory factory = WebApplicationContextUtils.getRequiredWebApplicationContext(request.getServletContext());
             audience = (Audience) factory.getBean("audience");
         }
-        // 验证token是否有效--无效已做异常抛出，由全局异常处理后返回对应信息
+        /*验证token是否有效--无效已做异常抛出，由全局异常处理后返回对应信息*/
         JwtTokenUtil.parseJWT(token, audience.getBase64Secret());
         return true;
 

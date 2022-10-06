@@ -1,21 +1,22 @@
 package com.miniaturebroccoli.controller;
 
 import com.miniaturebroccoli.annotation.JwtIgnore;
+import com.miniaturebroccoli.annotation.MyLog;
+import com.miniaturebroccoli.interceptor.exception.CustomException;
 import com.miniaturebroccoli.pojo.Admin;
 import com.miniaturebroccoli.pojo.Audience;
 import com.miniaturebroccoli.service.AdminService;
-import com.miniaturebroccoli.utils.JwtTokenUtil;
 import com.miniaturebroccoli.utils.ResultData;
-import com.miniaturebroccoli.utils.SensitiveWordUtil;
+import com.miniaturebroccoli.utils.ReturnCode;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
-import java.util.UUID;
+
+import static com.miniaturebroccoli.utils.VerifyUtil.getVerification;
 
 /**
  * @author scc
@@ -31,31 +32,59 @@ public class AdminController {
         this.audience = audience;
     }
 
+    /**
+     * 登录验证
+     */
+    @SuppressWarnings("rawtypes")
+    @MyLog("登录")
     @PostMapping("/admin")
-    public Object Login_judgment(@RequestBody Admin admin, HttpServletRequest request) {
-        log.info("数据为" + admin.toString());
-        Object cofing = SensitiveWordUtil.cofing(admin.toString());
-        if (cofing != null) {
-            return ResultData.customize(500, "参数中含有敏感词", cofing);
-        } else {
-            List judgment = (List) adminService.Login_judgment(admin.getAdminNickname(), admin.getAdminPassword());
-            if (judgment.size() > 0) {
-                //全局唯一标识符
-                String userId = UUID.randomUUID().toString();
-                String role = "admin";
-                // 创建token
-                return JwtTokenUtil.createJWT(userId, admin.getAdminNickname(), "管理员", audience);
-            } else {
-                return "账号密码错误";
-            }
-        }
+    public Object loginJudgment(@RequestBody Admin admin) {
+        return adminService.loginJudgment(admin);
     }
+
     /**
      * 返回管理员信息(昵称+邮箱)
      */
-    @JwtIgnore
+    @MyLog("返回管理员信息")
     @GetMapping("/adminInfo")
-    public Object amin_information() {
-        return adminService.amin_information();
+    public List<Admin> aminInformation() {
+        return adminService.aminInformation();
+    }
+
+    /**
+     * 获取验证码
+     */
+    @JwtIgnore
+    @MyLog("获取验证码")
+    @GetMapping("/getVerificationCode")
+    public String getVerificationCode(HttpServletRequest request) {
+        HashMap<String, String> verification = getVerification();
+        log.info("验证码" + verification.get("verification_code"));
+        log.info("验证码图像base64:" + "\n" + verification.get("verification_code_image"));
+        HttpSession httpSession = request.getSession();
+        httpSession.setAttribute("verification_code", verification.get("verification_code"));
+        httpSession.setMaxInactiveInterval(60);//设置session作用时间为60秒
+        return verification.get("verification_code_image");
+    }
+
+    /**
+     *判断验证码是否正确
+     */
+    @MyLog("判断验证码")
+    @GetMapping("/getVerificationCode/{str}")
+    public Object JudgmentVerificationCode(HttpServletRequest request,@PathVariable String str) {
+        HttpSession httpSession = request.getSession();
+        String verification_code = (String) httpSession.getAttribute("verification_code");
+        if (verification_code.equals("")) {
+            throw new CustomException(ResultData.customize1(ReturnCode.RC500.getCode(), "验证码为空"));
+        }
+        if (str.equals(verification_code)) {
+            httpSession.invalidate();
+            return true;
+        }
+        else {
+            return false;
+        }
+
     }
 }

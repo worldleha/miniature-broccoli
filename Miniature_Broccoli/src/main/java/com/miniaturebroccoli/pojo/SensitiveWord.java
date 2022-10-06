@@ -16,8 +16,8 @@ import lombok.NoArgsConstructor;
 //有参构造
 @AllArgsConstructor
 @Data
-@TableName(value = "dp")
-public class Dataprocessing {
+@TableName(value = "sensitive_word")
+public class SensitiveWord {
     @TableId(type = IdType.AUTO)
     private Long identificationId;
     private String sensitiveWords;

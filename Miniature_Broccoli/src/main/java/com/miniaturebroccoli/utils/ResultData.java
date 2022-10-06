@@ -4,8 +4,6 @@ import lombok.Data;
 
 /**
  * 统一数据返回格式
- *
- * @param <T>
  * @author scc
  */
 @Data
@@ -40,10 +38,6 @@ public class ResultData<T> {
 
     /**
      * 请求成功返回格式
-     *
-     * @param <T>
-     * @param data
-     * @return
      */
     public static <T> ResultData success(T data) {
         ResultData resultData = new ResultData();
@@ -55,11 +49,6 @@ public class ResultData<T> {
 
     /**
      * 请求错误返回格式
-     *
-     * @param code
-     * @param msg
-     * @param <T>
-     * @return
      */
     public static <T> ResultData<T> fail(int code, String msg) {
         ResultData resultData = new ResultData();
@@ -69,19 +58,23 @@ public class ResultData<T> {
     }
 
     /**
-     * 自定义返回格式
-     *
-     * @param code
-     * @param msg
-     * @param data
-     * @param <T>
-     * @return
+     * 自定义返回格式(带参数)
      */
     public static <T> ResultData<T> customize(int code, String msg, T data) {
         ResultData resultData = new ResultData();
         resultData.setCode(code);
         resultData.setMsg(msg);
         resultData.setData(data);
+        return resultData;
+    }
+
+    /**
+     * 自定义返回格式(不带参数)
+     */
+    public static <T> ResultData<T> customize1(int code, String msg) {
+        ResultData resultData = new ResultData();
+        resultData.setCode(code);
+        resultData.setMsg(msg);
         return resultData;
     }
 

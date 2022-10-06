@@ -1,7 +1,7 @@
 package com.miniaturebroccoli.utils;
 
-import com.miniaturebroccoli.pojo.Dataprocessing;
-import com.miniaturebroccoli.service.dataProcessingService;
+import com.miniaturebroccoli.pojo.SensitiveWord;
+import com.miniaturebroccoli.service.SensitiveWordService;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
  *
  * @author scc
  */
-@SuppressWarnings("ALL")
+@SuppressWarnings({"ALL", "LanguageDetectionInspection"})
 public class SensitiveWordUtil {
 
     /**
@@ -19,12 +19,12 @@ public class SensitiveWordUtil {
      */
     public static HashMap sensitiveWordMap;
     //工具类调用service
-    private static final dataProcessingService dps = SpringUtils.springUtils.dataProcessingService;
+    private static final SensitiveWordService dps = SpringUtils.springUtils.sensitiveWordService;
     private static Set set;
 
     static {
-        List<Dataprocessing> dataprocessings = dps.list(null);
-        set = dataprocessings.stream().map(Dataprocessing::getSensitiveWords).collect(Collectors.toSet());
+        List<SensitiveWord> SensitiveWords = (List<SensitiveWord>) dps.getSensitiveWord();
+        set = SensitiveWords.stream().map(SensitiveWord::getSensitiveWords).collect(Collectors.toSet());
         sensitiveWordMap = new HashMap(set.size());
     }
 
@@ -51,8 +51,8 @@ public class SensitiveWordUtil {
     private static void initSensitiveWordMap() {
     /**
      * 提取到静态代码块
-     *  List<Dataprocessing> dataprocessings = dps.list(null);
-     *  Set set = dataprocessings.stream().map(Dataprocessing::getSensitiveWords).collect(Collectors.toSet());
+     *  List<SensitiveWord> dataprocessings = dps.list(null);
+     *  Set set = dataprocessings.stream().map(SensitiveWord::getSensitiveWords).collect(Collectors.toSet());
      *  sensitiveWordMap = new HashMap(set.size());
      */
 

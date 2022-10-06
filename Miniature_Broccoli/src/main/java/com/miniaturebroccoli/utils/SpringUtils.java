@@ -1,6 +1,6 @@
 package com.miniaturebroccoli.utils;
 
-import com.miniaturebroccoli.service.dataProcessingService;
+import com.miniaturebroccoli.service.SensitiveWordService;
 
 import org.springframework.stereotype.Component;
 
@@ -11,16 +11,16 @@ import javax.annotation.PostConstruct;
  */
 @Component
 public class SpringUtils {
-    dataProcessingService dataProcessingService;
+    SensitiveWordService sensitiveWordService;
     public static SpringUtils springUtils;
 
-    public SpringUtils(dataProcessingService dataProcessingService) {
-        this.dataProcessingService = dataProcessingService;
+    public SpringUtils(SensitiveWordService sensitiveWordService) {
+        this.sensitiveWordService = sensitiveWordService;
     }
 
     @PostConstruct
-    public void init(){
+    public void init() {
         springUtils = this;
-        springUtils.dataProcessingService = this.dataProcessingService;
+        springUtils.sensitiveWordService = this.sensitiveWordService;
     }
 }

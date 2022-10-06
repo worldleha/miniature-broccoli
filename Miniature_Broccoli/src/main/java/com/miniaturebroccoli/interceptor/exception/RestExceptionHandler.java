@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
  * @author scc
+ *
+ * @RestControllerAdvice，RestController的增强类，可用于实现全局异常处理器
  * 全局异常处理
  */
 @Slf4j
@@ -24,12 +26,12 @@ public class RestExceptionHandler {
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ResultData<String> exception(Exception e) {
-        log.error("服务器内部错误" + e.getMessage());
+        log.error("服务器内部错误" + e);
         return ResultData.fail(
                 ReturnCode.RC500.getCode(),
                 ReturnCode.RC500.getMsg()
                         + "错误信息:"
-                        + e.getCause().getMessage());
+                        + e.getMessage());
     }
 
     /**

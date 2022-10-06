@@ -1,11 +1,13 @@
 package com.miniaturebroccoli.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.miniaturebroccoli.interceptor.exception.CustomException;
 import com.miniaturebroccoli.mapper.CommentMapper;
-import com.miniaturebroccoli.pojo.Article;
 import com.miniaturebroccoli.pojo.Comment;
 import com.miniaturebroccoli.service.CommentService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.miniaturebroccoli.utils.ResultData;
+import com.miniaturebroccoli.utils.ReturnCode;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,14 +27,14 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
      * 根据文章id返回所有评论
      */
     @Override
-    public Object Returnby_articleid(Long id) {
+    public List<Comment> returnByArticleId(Long id) {
         QueryWrapper<Comment> wrapper = new QueryWrapper<>();
         wrapper.eq("article_id", id);
-        List<Comment> list = commentMapper.selectList(wrapper);
-        if (list.size() > 0) {
-            return list;
+        List<Comment> comments = commentMapper.selectList(wrapper);
+        if (comments.size() > 0) {
+            return comments;
         } else {
-            return "数据为空";
+            throw new CustomException(ResultData.customize1(ReturnCode.RC500.getCode(), "id为" + id + "评论数据为空"));
         }
     }
 
@@ -40,46 +42,45 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
      * 添加评论信息
      */
     @Override
-    public Object addcomment(Comment comment) {
-        int b = commentMapper.insert(comment);
-        if (b > 0) {
+    public String addComment(Comment comment) {
+        int insert = commentMapper.insert(comment);
+        if (insert == 1) {
             return "添加成功";
-        } else {
-            return "添加失败";
         }
+        throw new CustomException(ResultData.customize1(ReturnCode.RC500.getCode(), "添加失败"));
     }
 
     /**
      * 根据id删除评论
      */
     @Override
-    public Object deleteId(Long id) {
-        int b = commentMapper.deleteById(id);
-        if (b > 0) {
-            return "删除成功";
-        } else {
-            return "删除失败";
-        }
+    public int deleteId(Long id) {
+        return commentMapper.deleteById(id);
     }
 
     /**
      * 返回评论条数
      */
     @Override
-    public Object total() {
+    public Long getCommentTotal() {
         QueryWrapper<Comment> queryWrapper = new QueryWrapper<>();
-        Long count = commentMapper.selectCount(queryWrapper);
-        return count;
+        queryWrapper.select();
+        return commentMapper.selectCount(queryWrapper);
+
     }
 
     /**
      * 根据id返回对应文章评论条数
      */
     @Override
-    public Object article_total(Long id) {
+    public String getArticleTotal(Long id) {
         QueryWrapper<Comment> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("article_id",id);
-        Long count = commentMapper.selectCount(queryWrapper);
-        return count;
+        queryWrapper.eq("article_id", id);
+        Long aLong = commentMapper.selectCount(queryWrapper);
+        if (aLong == 1) {
+            return "删除成功";
+        } else {
+            throw new CustomException(ResultData.customize1(ReturnCode.RC500.getCode(), "没有id为" + id + "的评论数据"));
+        }
     }
 }

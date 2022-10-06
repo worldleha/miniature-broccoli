@@ -10,12 +10,9 @@ import org.springframework.context.annotation.Configuration;
 /**
  * @author scc
  * mp配置
- *
  */
 @Configuration
 public class MyBatisPlusConfig {
-
-
     @Bean
     public MybatisPlusInterceptor mybatisPlusInterceptor() {
         MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();

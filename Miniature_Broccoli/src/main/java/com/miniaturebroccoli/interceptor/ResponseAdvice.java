@@ -1,6 +1,7 @@
-package com.miniaturebroccoli.utils;
+package com.miniaturebroccoli.interceptor;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.miniaturebroccoli.utils.ResultData;
 import lombok.SneakyThrows;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
@@ -11,7 +12,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 /**
  * @author scc
- * "@RestControllerAdvice，RestController的增强类，可用于实现全局异常处理器
+ *
  *  ResponseBodyAdvice的作用：**拦截Controller方法的返回值，统一处理返回值/响应体，一般用来统一返回格式，加解密，签名等等
  * 全局相应处理
  */
